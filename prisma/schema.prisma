@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model VideoIdea {
+  id           String   @id @default(cuid())
+  title        String
+  description  String?
+  category     String   // למשל: שיעורי תורה, שיעורי למידה, מצחיק
+  participants String?  // למשל: בן זוג, חברים, סולו
+  status       String   @default("עוד לא נוצר") // הסטטוסים שלנו: עוד לא נוצר, בתהליך, בוצע
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
