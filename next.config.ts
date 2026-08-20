@@ -4,11 +4,11 @@ import withPWAInit from "@ducanh2912/next-pwa";
 // הגדרות האפליקציה שלנו
 const withPWA = withPWAInit({
   dest: "public",
-  disable: process.env.NODE_ENV === "development", // מבטל את ה-PWA בזמן פיתוח כדי שלא יפריע לנו
+  disable: process.env.NODE_ENV === "development",
 });
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  turbopack: {}, // <--- הנה השורה החדשה שפותרת את השגיאה!
 };
 
 export default withPWA(nextConfig);
